@@ -20,17 +20,17 @@ const UpdateForm = ({ onUpdate, selectedItem }) => {
         <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column"}}>
             <div style={{ marginBottom: '10px', display: 'flex', justifyContent: "space-between" }}>
                 <label>Name:</label>
-                <input type="text" name="user_name" value={updatedItem.user_name} onChange={handleChange} required />
+                <input type="text" name="name" value={updatedItem.name} onChange={handleChange} required />
             </div>
 
             <div style={{ marginBottom: '10px', display: 'flex', justifyContent: "space-between" }}>
-                <label>Surname:</label>
-                <input type="text" name="user_surname" value={updatedItem.user_surname} onChange={handleChange} required />
+                <label>Size:</label>
+                <input type="number" name="size" value={updatedItem.size} onChange={handleChange} required />
             </div>
 
             <div style={{ marginBottom: '10px', display: 'flex', justifyContent: "space-between" }}>
-                <label>Age:</label>
-                <input type="number" name="user_age" value={updatedItem.user_age} onChange={handleChange} required />
+                <label>Color:</label>
+                <input type="text" name="color" value={updatedItem.color} onChange={handleChange} required />
             </div>
 
             <div style={{ marginBottom: '10px', display: 'flex', justifyContent: "space-between" }}>

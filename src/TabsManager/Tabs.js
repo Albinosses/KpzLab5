@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Tabs.css';
 import NameTab from '../NameTab/NameTab';
-import ProductTab from '../ProductTab';
+import ProductTab from '../ProductTab/ProductTab';
 
 const Tabs = () => {
     const [activeTab, setActiveTab] = useState(1);

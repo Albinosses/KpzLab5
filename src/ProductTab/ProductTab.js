@@ -3,18 +3,17 @@ import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 import axios from 'axios';
-import CreateForm from './CreateForm';
-import UpdateForm from './UpdateForm';
-import DeleteForm from './DeleteForm';
-
-const NameTab = () => {
+import CreateForm from "./CreateForm";
+import UpdateForm from "./UpdateForm";
+import DeleteForm from "./DeleteForm";
+const ProductTab = () => {
     const [rowData, setRowData] = useState([]);
     const [selectedItem, setSelectedItem] = useState(null);
 
     useEffect(() => {
         axios({
             method: 'get',
-            url: 'http://localhost:5179/api/Name/GetAll',
+            url: 'http://localhost:5179/api/Product/GetAllProducts',
             responseType: 'json'
         }).then(response => {
             if (response.data.success) {
@@ -26,10 +25,10 @@ const NameTab = () => {
     }, []);
 
     const columnDefs = [
-        {headerName: 'ID', field: 'id'},
-        {headerName: 'Name', field: 'user_name'},
-        {headerName: 'Surname', field: 'user_surname'},
-        {headerName: 'Age', field: 'user_age'}
+        {headerName: 'Id', field: 'id'},
+        {headerName: 'Name', field: 'name'},
+        {headerName: 'Size', field: 'size'},
+        {headerName: 'Color', field: 'color'}
     ];
 
     const gridOptions = {
@@ -47,11 +46,11 @@ const NameTab = () => {
     const handleCreate = (newItem) => {
         axios({
             method: 'post',
-            url: 'http://localhost:5179/api/Name/AddName',
+            url: 'http://localhost:5179/api/Product/AddProduct',
             data: {
-                user_name : newItem.user_name,
-                user_surname : newItem.user_surname,
-                user_age : newItem.user_age
+                name : newItem.name,
+                size : newItem.size,
+                color : newItem.color
             },
             responseType: 'json'
         }).then(response => {
@@ -66,12 +65,12 @@ const NameTab = () => {
     const handleUpdateSubmit = (updatedItem) => {
         axios({
             method: 'put',
-            url: 'http://localhost:5179/api/Name/UpdateName',
+            url: 'http://localhost:5179/api/Product/UpdateProduct',
             data: {
                 id : updatedItem.id,
-                user_name : updatedItem.user_name,
-                user_surname : updatedItem.user_surname,
-                user_age : updatedItem.user_age
+                name : updatedItem.name,
+                size : updatedItem.size,
+                color : updatedItem.color
             },
             responseType: 'json'
         }).then(response => {
@@ -90,7 +89,7 @@ const NameTab = () => {
     const handleDeleteSubmit = () => {
         axios({
             method: 'delete',
-            url: `http://localhost:5179/api/Name/${selectedItem.id}`,
+            url: `http://localhost:5179/api/Product/${selectedItem.id}`,
             responseType: 'json'
         }).then(response => {
             if (response.data.success) {
@@ -122,4 +121,4 @@ const NameTab = () => {
     );
 };
 
-export default NameTab;
+export default ProductTab;
