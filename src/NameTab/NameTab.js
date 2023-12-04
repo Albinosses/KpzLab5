@@ -66,7 +66,30 @@ const NameTab = () => {
         })
     };
 
-    
+    const handleUpdateSubmit = (updatedItem) => {
+        axios({
+            method: 'put',
+            url: 'http://localhost:5179/api/Name/UpdateName',
+            data: {
+                id : updatedItem.id,
+                user_name : updatedItem.user_name,
+                user_surname : updatedItem.user_surname,
+                user_age : updatedItem.user_age
+            },
+            responseType: 'json'
+        }).then(response => {
+            if (response.data.success) {
+                const updatedData = rowData.map((item) =>
+                    item.id === updatedItem.id ? response.data.data : item
+                );
+                setRowData(updatedData);
+                setUpdateFormVisible(false);
+                setSelectedItem(null);
+            } else {
+                console.error('API request failed:', response.data.message);
+            }
+        })
+    };
 
     const handleDeleteSubmit = () => {
         axios({
