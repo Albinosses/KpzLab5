@@ -35,7 +35,6 @@ const UpdateForm = ({ onUpdate, selectedItem, onCancel }) => {
 
             <div style={{ marginBottom: '10px', display: 'flex', justifyContent: "space-between" }}>
                 <button type="submit">Update</button>
-                <button type="button" onClick={onCancel}>Cancel</button>
             </div>
         </form>
     );

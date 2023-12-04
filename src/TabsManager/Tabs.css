@@ -1,0 +1,25 @@
+.tabs-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.tab-buttons {
+    display: flex;
+}
+
+button {
+    flex: 1;
+    padding: 10px; /* Adjust the padding as needed */
+    text-align: center;
+    cursor: pointer;
+    border: none;
+}
+
+.active-tab {
+    background-color: #3498db; /* Adjust the color as needed */
+    color: #fff;
+}
+
+.tab-content {
+    width: 100%;
+}

@@ -10,9 +10,6 @@ import DeleteForm from './DeleteForm';
 const NameTab = () => {
     const [rowData, setRowData] = useState([]);
     const [selectedItem, setSelectedItem] = useState(null);
-    const [createFormVisible, setCreateFormVisible] = useState(false);
-    const [updateFormVisible, setUpdateFormVisible] = useState(false);
-    const [deleteFormVisible, setDeleteFormVisible] = useState(false);
 
     useEffect(() => {
         axios({
@@ -83,7 +80,6 @@ const NameTab = () => {
                     item.id === updatedItem.id ? response.data.data : item
                 );
                 setRowData(updatedData);
-                setUpdateFormVisible(false);
                 setSelectedItem(null);
             } else {
                 console.error('API request failed:', response.data.message);
@@ -105,16 +101,9 @@ const NameTab = () => {
         })
     };
 
-    const handleCancel = () => {
-        setCreateFormVisible(false);
-        setUpdateFormVisible(false);
-        setDeleteFormVisible(false);
-        setSelectedItem(null);
-    };
-
     return (
         <div>
-            <div className="ag-theme-alpine" style={{ height: 400, width: '55%', margin: 'auto' }}>
+            <div className="ag-theme-alpine" style={{ height: 400, width: '55%', margin: 'auto', marginTop: '20px' }}>
                 <AgGridReact
                     rowData={rowData}
                     columnDefs={columnDefs}
@@ -124,10 +113,10 @@ const NameTab = () => {
             <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly", margin: "20px"}}>
                 <CreateForm onCreate={handleCreate} />
                 { selectedItem ? (
-                    <UpdateForm onUpdate={handleUpdateSubmit} onCancel={handleCancel} selectedItem={selectedItem} />
+                    <UpdateForm onUpdate={handleUpdateSubmit} selectedItem={selectedItem} />
                 ) : null}
 
-                <DeleteForm onDelete={handleDeleteSubmit} onCancel={handleCancel} />
+                <DeleteForm onDelete={handleDeleteSubmit} />
             </div>
         </div>
 

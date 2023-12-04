@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Tabs.css';
 import NameTab from '../NameTab/NameTab';
 import ProductTab from '../ProductTab';
 
@@ -10,13 +11,25 @@ const Tabs = () => {
     };
 
     return (
-        <div>
-            <div>
-                <button onClick={() => handleTabClick(1)}>Name Tab</button>
-                <button onClick={() => handleTabClick(2)}>Product Tab</button>
+        <div className="tabs-container">
+            <div className="tab-buttons">
+                <button
+                    onClick={() => handleTabClick(1)}
+                    className={activeTab === 1 ? 'active-tab' : ''}
+                >
+                    Name Tab
+                </button>
+                <button
+                    onClick={() => handleTabClick(2)}
+                    className={activeTab === 2 ? 'active-tab' : ''}
+                >
+                    Product Tab
+                </button>
             </div>
-            {activeTab === 1 && <NameTab />}
-            {activeTab === 2 && <ProductTab />}
+            <div className="tab-content">
+                {activeTab === 1 && <NameTab />}
+                {activeTab === 2 && <ProductTab />}
+            </div>
         </div>
     );
 };
