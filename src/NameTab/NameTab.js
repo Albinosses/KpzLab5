@@ -121,12 +121,14 @@ const NameTab = () => {
                     gridOptions={gridOptions}
                 />
             </div>
-            <CreateForm onCreate={handleCreate} />
-            { selectedItem ? (
-                <UpdateForm onUpdate={handleUpdateSubmit} onCancel={handleCancel} selectedItem={selectedItem} />
-            ) : null}
+            <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly", margin: "20px"}}>
+                <CreateForm onCreate={handleCreate} />
+                { selectedItem ? (
+                    <UpdateForm onUpdate={handleUpdateSubmit} onCancel={handleCancel} selectedItem={selectedItem} />
+                ) : null}
 
-            <DeleteForm onDelete={handleDeleteSubmit} onCancel={handleCancel} />
+                <DeleteForm onDelete={handleDeleteSubmit} onCancel={handleCancel} />
+            </div>
         </div>
 
     );

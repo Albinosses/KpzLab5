@@ -1,5 +1,5 @@
 import React from 'react';
-import Tabs from './Tabs';
+import Tabs from './TabsManager/Tabs';
 
 function App() {
   return (

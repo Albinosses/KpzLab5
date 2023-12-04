@@ -7,7 +7,7 @@ const DeleteForm = ({ onDelete, onCancel }) => {
 
     return (
         <div>
-            <p>Are you sure you want to delete this item?</p>
+            <p>Are you sure you want to delete selected item?</p>
             <button type="button" onClick={handleDelete}>Delete</button>
             <button type="button" onClick={onCancel}>Cancel</button>
         </div>

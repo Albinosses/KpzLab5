@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import NameTab from './NameTab/NameTab';
-import ProductTab from './ProductTab';
+import NameTab from '../NameTab/NameTab';
+import ProductTab from '../ProductTab';
 
 const Tabs = () => {
     const [activeTab, setActiveTab] = useState(1);
@@ -12,8 +12,8 @@ const Tabs = () => {
     return (
         <div>
             <div>
-                <button onClick={() => handleTabClick(1)}>Tab 1</button>
-                <button onClick={() => handleTabClick(2)}>Tab 2</button>
+                <button onClick={() => handleTabClick(1)}>Name Tab</button>
+                <button onClick={() => handleTabClick(2)}>Product Tab</button>
             </div>
             {activeTab === 1 && <NameTab />}
             {activeTab === 2 && <ProductTab />}

@@ -14,15 +14,21 @@ const CreateForm = ({ onCreate }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>Name:</label>
-            <input type="text" name="user_name" value={newItem.user_name} onChange={handleChange} required />
+        <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column"}}>
+            <div style={{ marginBottom: '10px', display: 'flex', justifyContent: "space-between" }}>
+                <label>Name:</label>
+                <input type="text" name="user_name" value={newItem.user_name} onChange={handleChange} required />
+            </div>
 
-            <label>Surname:</label>
-            <input type="text" name="user_surname" value={newItem.user_surname} onChange={handleChange} required />
+            <div style={{ marginBottom: '10px', display: 'flex', justifyContent: "space-between" }}>
+                <label>Surname:</label>
+                <input type="text" name="user_surname" value={newItem.user_surname} onChange={handleChange} required />
+            </div>
 
-            <label>Age:</label>
-            <input type="number" name="user_age" value={newItem.user_age} onChange={handleChange} required />
+            <div style={{ marginBottom: '10px', display: 'flex', justifyContent: "space-between" }}>
+                <label>Age:</label>
+                <input type="number" name="user_age" value={newItem.user_age} onChange={handleChange} required />
+            </div>
 
             <button type="submit">Create</button>
         </form>

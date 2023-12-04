@@ -17,23 +17,23 @@ const UpdateForm = ({ onUpdate, selectedItem, onCancel }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", width: '33%'}}>
-            <div style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
+        <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column"}}>
+            <div style={{ marginBottom: '10px', display: 'flex', justifyContent: "space-between" }}>
                 <label>Name:</label>
                 <input type="text" name="user_name" value={updatedItem.user_name} onChange={handleChange} required />
             </div>
 
-            <div style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
+            <div style={{ marginBottom: '10px', display: 'flex', justifyContent: "space-between" }}>
                 <label>Surname:</label>
                 <input type="text" name="user_surname" value={updatedItem.user_surname} onChange={handleChange} required />
             </div>
 
-            <div style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
+            <div style={{ marginBottom: '10px', display: 'flex', justifyContent: "space-between" }}>
                 <label>Age:</label>
                 <input type="number" name="user_age" value={updatedItem.user_age} onChange={handleChange} required />
             </div>
 
-            <div style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
+            <div style={{ marginBottom: '10px', display: 'flex', justifyContent: "space-between" }}>
                 <button type="submit">Update</button>
                 <button type="button" onClick={onCancel}>Cancel</button>
             </div>
